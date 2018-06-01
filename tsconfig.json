@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": false,
     "target": "es2015",
     "module": "es2015",
     "outDir": "build/dist",
@@ -16,5 +17,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
+  "exclude": ["node_modules"],
   "include": ["src/**/*", "typings/*"]
 }

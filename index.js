@@ -1,3 +1,1 @@
-import { AppRegistry } from 'react-native'
-import App from './src/App'
-AppRegistry.registerComponent('rntsmstapp', () => App)
+import './src/app/main'
