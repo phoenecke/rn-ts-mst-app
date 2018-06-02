@@ -2,11 +2,11 @@ import { flow, getEnv, types } from 'mobx-state-tree'
 
 export const MovieModel = types.model('Movie', {
   id: types.number,
-  posterPath: types.string,
+  posterPath: types.maybe(types.string),
   overview: types.string,
   releaseDate: types.string,
   title: types.string,
-  backdropPath: types.string,
+  backdropPath: types.maybe(types.string),
   popularity: types.number,
   voteAverage: types.number,
 })
@@ -17,7 +17,14 @@ export const MovieStoreModel = types
   .model('MovieStore', {
     movies: types.array(MovieModel),
     search: '',
-    selectedId: types.number,
+    selectedId: types.maybe(types.number),
+  })
+  .views(self => {
+    return {
+      get selectedMovie() {
+        return self.movies.find(m => m.id === self.selectedId)
+      },
+    }
   })
   .actions(self => {
     const searchMovies = flow(function* loadBooks() {

@@ -9,8 +9,8 @@ export const RootStoreModel = types.model('RootStore', {
   navigationStore: types.optional(NavigationStoreModel, {}),
   movieStore: types.optional(MovieStoreModel, {
     movies: [],
-    selectedId: 0,
-    search: 'hi',
+    selectedId: null,
+    search: '',
   }),
 })
 

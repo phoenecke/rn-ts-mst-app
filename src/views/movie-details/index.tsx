@@ -22,7 +22,7 @@ interface IProps extends NavigationScreenProps<{}> {
 @inject((rootStore: RootStore) => {
   const movieStore = rootStore.movieStore
   return {
-    movie: movieStore.movies.find(m => m.id === movieStore.selectedId),
+    movie: movieStore.selectedMovie,
   }
 })
 @observer
