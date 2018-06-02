@@ -48,7 +48,7 @@ class MovieSearch extends React.Component<IProps> {
 
   public onPress = (id: number) => {
     this.props.selectedIdChange(id)
-    this.props.navigation.navigate('MovieDetailsScreen')
+    this.props.navigation.navigate('movieDetails')
   }
 
   public render() {

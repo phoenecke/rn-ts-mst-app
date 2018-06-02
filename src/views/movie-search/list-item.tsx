@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native'
-import { IMovie } from '../../services/api'
+import { IMovie } from '../../models/movie-store'
 import { color, spacing } from '../../theme'
 
 interface IProps {
