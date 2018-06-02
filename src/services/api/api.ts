@@ -50,15 +50,11 @@ export class Api {
       const movies: IMovie[] = response.data.results.map((r: any) => {
         return {
           id: r.id,
-          posterPath: r.poster_path
-            ? Config.THUMB_BASE_URI + r.poster_path
-            : null,
+          posterPath: Config.THUMB_BASE_URI + r.poster_path,
           overview: r.overview,
           releaseDate: r.release_date,
           title: r.title,
-          backdropPath: r.backdrop_path
-            ? Config.BACKGROUND_BASE_URI + r.backdrop_path
-            : null,
+          backdropPath: Config.BACKGROUND_BASE_URI + r.backdrop_path,
           popularity: r.popularity,
           voteAverage: r.vote_average,
         } as IMovie

@@ -2,11 +2,11 @@ import { flow, getEnv, types } from 'mobx-state-tree'
 
 export const MovieModel = types.model('Movie', {
   id: types.number,
-  posterPath: types.maybe(types.string),
+  posterPath: types.string,
   overview: types.string,
   releaseDate: types.string,
   title: types.string,
-  backdropPath: types.maybe(types.string),
+  backdropPath: types.string,
   popularity: types.number,
   voteAverage: types.number,
 })
