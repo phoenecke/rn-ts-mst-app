@@ -3,6 +3,7 @@ import * as storage from '../lib/storage'
 import { Environment } from '../models/environment'
 import { RootStore, RootStoreModel } from '../models/root-store'
 import { Api } from '../services/api'
+import { Reactotron } from '../services/reactotron'
 
 /**
  * The key we'll be saving our state as within async storage.
@@ -28,6 +29,11 @@ export async function setupRootStore() {
     rootStore = RootStoreModel.create({}, env)
   }
 
+  // reactotron logging
+  if (__DEV__) {
+    env.reactotron.setRootStore(rootStore, data)
+  }
+
   // track changes & save to storage
   onSnapshot(rootStore, snapshot =>
     storage.save(ROOT_STATE_STORAGE_KEY, snapshot)
@@ -46,7 +52,9 @@ export async function setupRootStore() {
 export async function createEnvironment() {
   // create each service
   const api = new Api()
-  const env = new Environment(api)
+  const tron = new Reactotron()
+  await tron.setup()
+  const env = new Environment(api, tron)
 
   return env
 }

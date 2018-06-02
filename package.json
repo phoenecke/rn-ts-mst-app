@@ -62,6 +62,8 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-config": "^0.11.5",
-    "react-navigation": "^1.5.8"
+    "react-navigation": "^1.5.8",
+    "reactotron-mst": "^2.0.0-beta.4",
+    "reactotron-react-native": "^2.0.0-beta.4"
   }
 }

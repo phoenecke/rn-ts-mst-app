@@ -1,4 +1,5 @@
 import { Api } from '../services/api'
+import { Reactotron } from '../services/reactotron'
 
 /**
  * The environment is a place where services and shared dependencies between
@@ -6,8 +7,10 @@ import { Api } from '../services/api'
  */
 export class Environment {
   public api: Api
+  public reactotron: Reactotron
 
-  constructor(api: Api) {
+  constructor(api: Api, reactotron: Reactotron) {
     this.api = api
+    this.reactotron = reactotron
   }
 }
