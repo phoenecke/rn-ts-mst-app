@@ -3,6 +3,7 @@ import * as React from 'react'
 import {
   Image,
   ImageStyle,
+  SafeAreaView,
   Text,
   TextStyle,
   View,
@@ -46,7 +47,7 @@ class MovieDetails extends React.Component<IProps> {
             <Text style={YEAR}> ({year})</Text>
           </Text>
         </View>
-        <View />
+        <SafeAreaView />
       </View>
     )
   }

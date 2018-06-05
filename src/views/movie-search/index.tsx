@@ -1,13 +1,14 @@
 import { inject, observer } from 'mobx-react'
 import * as React from 'react'
 import {
+  SafeAreaView,
   ScrollView,
   Text,
   TextInput,
   TextStyle,
   TouchableOpacity,
   View,
-  ViewStyle,
+  ViewStyle
 } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
 import { IMovie } from '../../models/movie-store'
@@ -55,25 +56,30 @@ class MovieSearch extends React.Component<IProps> {
     return (
       <View style={CONTAINER}>
         <Wallpaper />
-        <View style={SEARCH_BAR}>
-          <TextInput
-            style={INPUT}
-            onChangeText={this.onSearchChange}
-            onSubmitEditing={this.onSearchMovies}
-            value={this.props.search}
-            placeholder="Search Movies"
-          />
-          <TouchableOpacity style={SEARCH_BUTTON} onPress={this.onSearchMovies}>
-            <Text style={TITLE}>Go!</Text>
-          </TouchableOpacity>
-        </View>
-        <ScrollView style={MOVIES} contentContainerStyle={MOVIES_CONTAINER}>
-          {this.props.movies.map(movie => {
-            return (
-              <ListItem key={movie.id} movie={movie} onPress={this.onPress} />
-            )
-          })}
-        </ScrollView>
+        <SafeAreaView style={CONTAINER}>
+          <View style={SEARCH_BAR}>
+            <TextInput
+              style={INPUT}
+              onChangeText={this.onSearchChange}
+              onSubmitEditing={this.onSearchMovies}
+              value={this.props.search}
+              placeholder="Search Movies"
+            />
+            <TouchableOpacity
+              style={SEARCH_BUTTON}
+              onPress={this.onSearchMovies}
+            >
+              <Text style={TITLE}>Go!</Text>
+            </TouchableOpacity>
+          </View>
+          <ScrollView style={MOVIES} contentContainerStyle={MOVIES_CONTAINER}>
+            {this.props.movies.map(movie => {
+              return (
+                <ListItem key={movie.id} movie={movie} onPress={this.onPress} />
+              )
+            })}
+          </ScrollView>
+        </SafeAreaView>
       </View>
     )
   }
@@ -99,6 +105,7 @@ const MOVIES_CONTAINER: ViewStyle = {
 
 const MOVIES: ViewStyle = {
   marginTop: 0,
+  marginBottom: spacing.small,
 }
 
 const INPUT: TextStyle = {
@@ -112,7 +119,6 @@ const SEARCH_BAR: ViewStyle = {
   flexDirection: 'row',
   alignItems: 'center',
   margin: spacing.small,
-  marginTop: spacing.large,
   marginBottom: 0,
 }
 
